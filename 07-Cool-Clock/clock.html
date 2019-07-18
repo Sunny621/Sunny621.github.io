@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//h2D XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/h2D/xhtml1-transitional.h2d">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cool Clock</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div id="clock" class="date">
+        <h2><img src="images/title.png" /></h2>
+        <div class="year">
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img src="images/year.png" alt="year" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img src="images/month.png" alt="month" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img src="images/seven.png" alt="seven" longdesc="http://www.miaov.com" />
+        </div>
+        <div class="time">
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img src="images/sign.png" alt="sign" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img src="images/sign.png" alt="sign" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="num" src="images/0.png" alt="0" longdesc="http://www.miaov.com" />
+            <img class="pos2" src="images/week.png" alt="week" longdesc="http://www.miaov.com" />
+            <img class="num2" src="images/one.png" alt="1" longdesc="http://www.miaov.com" />
+        </div>
+    </div>
+    <script>
+        (function() {
+            var timeImgs = document.querySelectorAll("#clock .num");
+            var weekdayImg = document.querySelector("#clock .num2");
+
+            var weekdayImgArr = [
+                "images/seven.png",
+                "images/one.png",
+                "images/two.png",
+                "images/three.png",
+                "images/four.png",
+                "images/five.png",
+                "images/six.png"
+            ];
+
+            getTime();
+            setInterval(function() {
+                getTime();
+            }, 1000);
+
+            function getTime() {
+                var date = new Date();
+                var year = date.getFullYear() + "";
+                var month = toDB(date.getMonth() + 1);
+                var day = toDB(date.getDate());
+                var hours = toDB(date.getHours());
+                var minutes = toDB(date.getMinutes());
+                var seconds = toDB(date.getSeconds());
+                var weekday = date.getDay();
+
+                var dateStr = year + month + day + hours + minutes + seconds;
+
+                for (var i = 0; i < timeImgs.length; i++) {
+                    timeImgs[i].src = "images/" + dateStr[i] + ".png";
+                }
+
+                weekdayImg.src = weekdayImgArr[weekday];
+            }
+
+            function toDB(num) {
+                return num < 10 ? "0" + num : "" + num;
+            }
+
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Data Filter</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <div class="box">
+        <div class="arrs">
+            var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+        </div>
+        <!-- 
+          All numbers: -98765,34,-2,0,5
+          All that can be converted to numbers: 100px,-98765,34,-2,0,300,23.45元,5
+          Maximum：300
+          All NaN index：1,14,17,19
+       -->
+        <div class="screen">
+            <p id="p1"></p>
+            <p id="p2"></p>
+            <p id="p3"></p>
+            <p id="p4"></p>
+        </div>
+    </div>
+</body>
+<script>
+    var arr = [
+        "100px",
+        "abc" - 6, [], -98765,
+        34, -2,
+        0,
+        "300", ,
+        function() {
+            alert(1);
+        },
+        null,
+        document, [],
+        true,
+        "200px" - 30,
+        "23.45元",
+        5,
+        Number("abc"),
+        function() {
+            alert(3);
+        },
+        "xyz" - 90
+    ];
+
+    var p1 = document.getElementById("p1");
+    var p2 = document.getElementById("p2");
+    var p3 = document.getElementById("p3");
+    var p4 = document.getElementById("p4");
+
+    //All numbers
+    var str1 = "All numbers: ";
+    for (var i = 0; i < arr.length; i++) {
+        if (typeof arr[i] == 'number' && arr[i] == arr[i]) {
+            str1 = str1 + " " + arr[i] + ",";
+        }
+    }
+    str1 = str1.substring(0, str1.length - 1);
+    p1.innerHTML = str1;
+
+    //All that can be converted to numbers
+    var str2 = "All that can be converted to numbers: ";
+    for (var i = 0; i < arr.length; i++) {
+        if (!isNaN(parseFloat(arr[i]))) {
+            str2 = str2 + " " + arr[i] + ",";
+        }
+    }
+    str2 = str2.substring(0, str2.length - 1);
+    p2.innerHTML = str2;
+
+    //Maximum
+    var str3 = "Maximum: "
+    var maxNum = -Infinity;
+    for (var i = 0; i < arr.length; i++) {
+        var num = parseFloat(arr[i]);
+
+        if (!isNaN(num) && num > maxNum) {
+            maxNum = num;
+        }
+    }
+    str3 += maxNum;
+    p3.innerHTML = str3;
+
+    // All NaN index
+    var str4 = "All NaN index: "
+    for (var i = 0; i < arr.length; i++) {
+        if (typeof arr[i] == "number" && isNaN(arr[i])) {
+            str4 = str4 + " " + i + ",";
+        }
+    }
+    str4 = str4.substring(0, str4.length - 1);
+    p4.innerHTML = str4;
+</script>
+</html
