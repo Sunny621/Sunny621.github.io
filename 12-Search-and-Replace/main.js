@@ -16,40 +16,28 @@ window.onload = function() {
     var searchInput = searchArea.querySelectorAll("input");
     var replaceInput = replaceArea.querySelectorAll("input");
 
+    var txt = content.innerHTML;
 
     searchInput[1].onclick = function() {
-        var txt = content.innerHTML;
-        txt = clearspan(txt);
         var searchStr = searchInput[0].value;
-        search(txt, searchStr);
+        search(searchStr);
     }
 
     replaceInput[2].onclick = function() {
-        var txt = content.innerHTML;
-        txt = clearspan(txt);
         var searchStr = replaceInput[0].value;
         var replaceStr = replaceInput[1].value;
-        replace(txt, searchStr, replaceStr);
+        replace(searchStr, replaceStr);
     }
 
-    function clearspan(txt) {
-        var txtArr = [];
-        txtArr = txt.split("<span>").join('').split("</span>").join('');
-        return txtArr;
+    function search(str) {
+        var txtArr = txt.split(str);
+        content.innerHTML = txtArr.join('<span>' + str + '</span>');;
     }
 
-    function search(txt, str) {
-        var txtArr = [];
-        txtArr = txt.split(str);
-        txtArr = txtArr.join('<span>' + str + '</span>');
-        content.innerHTML = txtArr;
-    }
-
-    function replace(txt, str, newStr) {
-        var txtArr = [];
-        txtArr = txt.split(str);
-        txtArr = txtArr.join('<span>' + newStr + '</span>');
-        content.innerHTML = txtArr;
+    function replace(str, newStr) {
+        var txtArr = txt.split(str);
+        content.innerHTML = txtArr.join('<span>' + newStr + '</span>');
+        txt = txtArr.join(newStr);
     }
 
     open.onclick = function() {
