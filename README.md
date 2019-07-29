@@ -11,8 +11,8 @@
 09 - [Shopping Cart](https://sunny621.github.io/09-Shopping-Cart/index.html)
 10 - [Auto Switched Tabs](https://sunny621.github.io/10-Auto-Switch-Tabs/index.html)
 
-11 - [Search and Replace](https://sunny621.github.io/12-Search-and-Replace/index.html)
-12 - [Random Sort](https://sunny621.github.io/13-Random-Sort/index.html)
+11 - [Search and Replace](https://sunny621.github.io/11-Search-and-Replace/index.html)
+12 - [Random Sort](https://sunny621.github.io/12-Random-Sort/index.html)
 13 - [Infinite Scroll Slide A](https://sunny621.github.io/13-Infinite-Scroll-Slide-A/index.html)
 14 - [Infinite Scroll Slide B](https://sunny621.github.io/14-Infinite-Scroll-Slide-B/index.html)
 15 - [Scrolling Clock](https://sunny621.github.io/15-Scrolling-Clock/index.html)
