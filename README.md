@@ -16,3 +16,5 @@
 13 - [Infinite Scroll Slide A](https://sunny621.github.io/13-Infinite-Scroll-Slide-A/index.html)
 14 - [Infinite Scroll Slide B](https://sunny621.github.io/14-Infinite-Scroll-Slide-B/index.html)
 15 - [Scrolling Clock](https://sunny621.github.io/15-Scrolling-Clock/index.html)
+
+16 - [Swiching Pictures](https://sunny621.github.io/16-Switching-Pics/index.html)
