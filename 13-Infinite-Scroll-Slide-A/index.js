@@ -8,10 +8,13 @@
 
     var now = 0;
     var imgW = css(img, "width");
+    var isMove = false;
 
     css(ul, "translateX", 0);
 
     nextBtn.onclick = function() {
+        if (isMove) return;
+        isMove = true;
         if (now >= navs.length) {
             now = 0;
             css(ul, "translateX", 0);
@@ -21,6 +24,8 @@
     };
 
     prevBtn.onclick = function() {
+        if (isMove) return;
+        isMove = true;
         if (now == 0) {
             now = navs.length;
             css(ul, "translateX", -now * imgW);
@@ -31,6 +36,8 @@
 
     navs.forEach(function(item, index) {
         item.onclick = function() {
+            if (isMove) return;
+            isMove = true;
             now = index;
             tab();
         };
@@ -46,6 +53,9 @@
             el: ul,
             attr: {
                 translateX: -now * imgW
+            },
+            cb: function() {
+                isMove = false;
             }
         });
     }
