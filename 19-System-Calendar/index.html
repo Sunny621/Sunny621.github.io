@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>System Calendar</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section id="wrap">
+        <div id="date">
+            <div id="clock-wrap">
+                <div id="clock">
+                    <ul id="lattice-list"></ul>
+                    <div id="box">
+                        <div class="dot"></div>
+                        <div class="hour"></div>
+                        <div class="min"></div>
+                        <div class="sec"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="now">
+                <p>2019年3月18日</p>
+                <p>星期一</p>
+            </div>
+        </div>
+        <div id="ctrls">
+            <a href="javascript:;" id="option">2019年3月</a>
+            <div id="arrows">
+                <a href="javscript:;" id="prev"></a>
+                <a href="javascript:;" id="next"></a>
+            </div>
+        </div>
+        <div id="main">
+            <div class="board"></div>
+        </div>
+    </section>
+    <script src="js/mTween.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
