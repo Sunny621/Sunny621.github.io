@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dropdown Menu</title>
+    <script src="data.js"></script>
+    <style>
+        .view ul ul {
+            display: none;
+        }
+        
+        .show {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view">
+        <!-- <ul>
+            <li>
+                <p>一级标题</p>
+                <ul>
+                    <li>
+                        <p>二级标题</p>
+                        <ul>
+                            <li>
+                                ...
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul> -->
+    </div>
+    <script>
+        let view = document.querySelector(".view");
+
+        view.appendChild(renderChild(-1));
+
+        let lists = document.querySelectorAll('.view p');
+
+        lists.forEach(item => {
+            item.onclick = function() {
+                let ul = item.nextElementSibling;
+                ul.classList.toggle('show');
+            }
+        })
+
+        function renderChild(pid) {
+            let child = getChild(pid);
+            let ul = document.createElement("ul");
+
+            child.forEach((item, index) => {
+                let li = document.createElement("li");
+                let p = document.createElement("p");
+                p.innerHTML = item.title;
+                li.appendChild(p);
+
+                if (getChild(item.id).length > 0) {
+                    li.appendChild(renderChild(item.id));
+                }
+
+                ul.appendChild(li);
+            });
+
+            return ul;
+
+        }
+
+        function getChild(id) {
+            return data.filter(item => item.pid == id);
+        }
+    </script>
+</body>
+
+</html>
