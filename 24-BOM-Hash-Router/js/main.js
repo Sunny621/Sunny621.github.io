@@ -8,7 +8,12 @@
         type: 'society'
     });
 
+    hashRender();
     window.onhashchange = function() {
+        hashRender();
+    }
+
+    function hashRender() {
         let hash = window.location.hash;
         hash = hash.substring(2).split('/');
 
@@ -16,7 +21,7 @@
             item.classList.remove("active");
         });
 
-        if (hash[0] == "sh") {
+        if (hash[0] == "sh" || !hash[0]) {
             navs[0].classList.add("active");
 
             if (hash[1] == "details") {
