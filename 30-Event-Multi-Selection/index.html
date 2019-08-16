@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multi Selection</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        
+        .box {
+            border: blue 1px solid;
+            position: absolute;
+            background: rgba(0, 0, 255, 0.4);
+        }
+        
+        .bigBox {
+            height: 300px;
+            border: 1px solid blue;
+        }
+        
+        .bigBox li,
+        .list li {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            float: left;
+            margin: 20px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            list-style: none;
+        }
+        
+        .list .active {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Select Boxs to Move Up</h2>
+    <ul class="bigBox"></ul>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+</body>
+<script type="text/javascript" src="main.js"></script>
+
+</html>
