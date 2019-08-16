@@ -34,4 +34,4 @@
 28 - [Drag And Move](https://sunny621.github.io/28-Event-Drag-And-Move/index.html)
 29 - [Scroll Bar](https://sunny621.github.io/29-Event-Scroll-Bar/)
 
-30 - [Multi Selection](https://sunny621.github.io/30-Event-Multi-Selection/index.html)
+30 - [Multi Selection](https://sunny621.github.io/30-Event-Multi-Selection/)
