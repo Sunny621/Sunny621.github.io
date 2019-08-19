@@ -82,6 +82,8 @@
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
 
+            list.style.display = "block";
+
             let maxL = document.documentElement.clientWidth - list.offsetWidth;
             let maxT = document.documentElement.clientHeight - list.offsetHeight;
 
@@ -90,8 +92,6 @@
 
             list.style.left = left + 'px';
             list.style.top = top + 'px';
-
-            list.style.display = "block";
         });
 
         document.addEventListener('click', function(e) {
