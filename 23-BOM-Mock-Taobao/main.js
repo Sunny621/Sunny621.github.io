@@ -16,7 +16,7 @@
     }
 
     function showBacktop() {
-        let clientH = window.innerHeight;
+        let clientH = document.documentElement.clientHeight;
         let scrollT = document.documentElement.scrollTop || document.body.scrollTop;
         scrollT >= clientH ? backTop.style.display = "block" : backTop.style.display = "none";
     }

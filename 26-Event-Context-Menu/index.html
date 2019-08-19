@@ -82,8 +82,8 @@
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
 
-            let maxL = window.innerWidth - list.offsetWidth;
-            let maxT = window.innerHeight - list.offsetHeight;
+            let maxL = document.documentElement.clientWidth - list.offsetWidth;
+            let maxT = document.documentElement.clientHeight - list.offsetHeight;
 
             let left = Math.min(maxL, e.pageX);
             let top = Math.min(maxT, e.pageY);
