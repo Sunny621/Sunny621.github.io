@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Constructor Tab</title>
+</head>
+
+<style>
+    .mydiv1,
+    .mydiv2 {
+        clear: both;
+        overflow: auto;
+        margin-top: 20px;
+    }
+    
+    .img {
+        float: left;
+    }
+    
+    .btns {
+        float: left;
+    }
+    
+    .btns p {
+        height: 36px;
+        width: 80px;
+        border: 1px solid #333;
+        display: block;
+        margin: 0;
+        line-height: 36px;
+        text-align: center;
+    }
+    
+    .btns .active {
+        background-color: #333;
+        color: white;
+    }
+    
+    button {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+        margin: 20px 0;
+    }
+</style>
+
+<body>
+    <div class="mydiv1">
+
+        <div class="img" style="display: block;">
+            <img src="./img/img1.jpg" />
+        </div>
+        <div class="img" style="display: none;">
+            <img src="./img/img2.jpg" />
+        </div>
+        <div class="btns">
+            <p class="active">image1</p>
+            <p>image2</p>
+        </div>
+    </div>
+    <div class="mydiv2">
+        <div class="img" style="display: block;">
+            <img src="./img/img5.jpg" />
+        </div>
+        <div class="img" style="display: none;">
+            <img src="./img/img4.jpg" />
+        </div>
+        <div class="img" style="display: none;">
+            <img src="./img/img3.jpg" />
+        </div>
+        <div class="img" style="display: none;">
+            <img src="./img/img2.jpg" />
+        </div>
+        <div class="img" style="display: none;">
+            <img src="./img/img1.jpg" />
+        </div>
+        <div class="btns">
+            <p class="active">image1</p>
+            <p>image2</p>
+            <p>image3</p>
+            <p>image4</p>
+            <p>image5</p>
+        </div>
+    </div>
+    <button class="nextPre">Click Me to Switch 1st Tab to Next Image</button>
+    <button class="autoPlay">Click Me to Autoplay 2nd Tab</button>
+</body>
+<script type="text/javascript" src="main.js"></script>
+
+</html>

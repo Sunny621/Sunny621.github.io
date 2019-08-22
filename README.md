@@ -35,3 +35,5 @@
 29 - [Scroll Bar](https://sunny621.github.io/29-Event-Scroll-Bar/)
 
 30 - [Multi Selection](https://sunny621.github.io/30-Event-Multi-Selection/)
+31 - TBA
+30 - [Constructor Tab](https://sunny621.github.io/32-Constructor-Tab/index.html)
