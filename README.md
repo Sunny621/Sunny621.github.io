@@ -36,4 +36,4 @@
 
 30 - [Multi Selection](https://sunny621.github.io/30-Event-Multi-Selection/)
 31 - TBA
-30 - [Constructor Tab](https://sunny621.github.io/32-Constructor-Tab/index.html)
+32 - [ES5 Object Oriented Tab](https://sunny621.github.io/32-ES5-OO-Tab/index.html)
