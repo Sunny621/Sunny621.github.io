@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6 Drag</title>
+    <style>
+        .mydiv1 {
+            width: 100px;
+            height: 100px;
+            background: url('./img/ali_2.jpg');
+            background-size: cover;
+            position: absolute;
+        }
+        
+        .mydiv2 {
+            width: 100px;
+            height: 100px;
+            background: url('./img/ali_1.jpg');
+            background-size: cover;
+            position: absolute;
+            left: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mydiv1"></div>
+    <div class="mydiv2"></div>
+</body>
+
+<script>
+    class Drag {
+        constructor(elem) {
+            this.elem = elem;
+            this.downFn();
+        }
+
+        downFn() {
+            this.elem.onmousedown = e => {
+                let ev = e || window.event;
+                let x = ev.clientX - this.elem.offsetLeft;
+                let y = ev.clientY - this.elem.offsetTop;
+                this.moveFn(x, y);
+                this.upFn();
+            }
+        }
+
+        moveFn(x, y) {
+            document.onmousemove = e => {
+                let ev = e || window.event;
+                let xx = ev.clientX;
+                let yy = ev.clientY;
+                this.setStyle(xx - x, yy - y);
+            }
+        }
+
+        setStyle(leftNum, topNum) {
+            this.elem.style.left = leftNum + "px";
+            this.elem.style.top = topNum + "px";
+        }
+
+        upFn() {
+            document.onmouseup = () => {
+                document.onmousemove = "";
+            }
+        }
+    }
+
+    class LimitDrag extends Drag {
+        constructor(elem) {
+            super(elem);
+        }
+        setStyle(leftNum, topNum) {
+            //限定区域；
+            let maxX = document.documentElement.clientWidth - this.elem.offsetWidth;
+            let maxY = document.documentElement.clientHeight - this.elem.offsetHeight;
+
+            leftNum = Math.max(0, leftNum);
+            topNum = Math.max(0, topNum);
+
+            leftNum = Math.min(leftNum, maxX);
+            topNum = Math.min(topNum, maxY);
+
+            this.elem.style.left = leftNum + "px";
+            this.elem.style.top = topNum + "px";
+        }
+    }
+
+    let mydiv1 = document.querySelector(".mydiv1");
+    let drag1 = new Drag(mydiv1);
+
+    let mydiv2 = document.querySelector(".mydiv2");
+    let drag2 = new LimitDrag(mydiv2);
+</script>
+
+</html>
