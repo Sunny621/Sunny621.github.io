@@ -84,8 +84,7 @@
             leftNum = Math.min(leftNum, maxX);
             topNum = Math.min(topNum, maxY);
 
-            this.elem.style.left = leftNum + "px";
-            this.elem.style.top = topNum + "px";
+            super.setStyle(leftNum, topNum);
         }
     }
 
