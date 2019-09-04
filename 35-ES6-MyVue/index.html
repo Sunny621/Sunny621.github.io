@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyVue</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }} other message
+        <div>
+            <span>
+                <span>
+                    <span> <strong>inside children nodes: </strong> {{message}}</span>
+            </span>
+            </span>
+        </div>
+        <strong>my data:</strong> {{mydata}}
+        <div v-html="htmldata"></div>
+        <input v-model="modelData" style="width:200px" /> {{modelData}}
+    </div>
+</body>
+<script type="module">
+import MyVue from './MyVue.js' 
+let vm = new MyVue({ 
+    el: "#app", 
+    data: { 
+        message: "user message", 
+        mydata: "my data", 
+        htmldata: "html data", 
+        modelData: "two-way binding data" 
+    } 
+}) 
+</script>
+
+</html>
