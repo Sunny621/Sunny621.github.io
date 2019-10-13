@@ -1,0 +1,45 @@
+meta(charset='UTF-8')
+meta(name='viewport', content='width=device-width,initial-scale=1')
+meta(http-equiv='X-UA-Compatible', content='ie=edge')
+title Document
+style.
+  
+  table {
+        border-left: 1px solid #ebeef5;
+        border-top: 1px solid #ebeef5;
+        margin-top: 40px;
+        width:100%;
+        }
+        table td,
+        th {
+        border-bottom: 1px solid #ebeef5;
+        border-right: 1px solid #ebeef5;
+        }
+        .delBtn {
+        cursor: pointer;
+        }
+        a{
+          text-decoration:none;
+        }
+  
+div
+  table(border='0')
+    tbody
+      tr
+        th 标题
+        th 类型
+        th 国家
+        th 缩略图
+        th 操作
+      for val in res
+        tr
+          td #{val.title}
+          td #{val.type}
+          td #{val.country}
+          td
+            img(width='140px', src=val.imgUrl)
+          td
+            span.delBtn
+              a(href='/admin/delete?id='+val.id) 删除
+- for(let i=1;i<=pageCount;i++)
+    a(href='/admin/newsList?p='+i) #{i} 
