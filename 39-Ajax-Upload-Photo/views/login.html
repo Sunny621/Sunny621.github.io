@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <script type="text/javascript" src="ajax.js"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="loginContainer">
+        <h1>登录</h1>
+        <form action="/checkUser" method="post">姓名：
+            <input class="inputStyle username" type="text" name="username" onblur="checkUserName()" /><span class="exchange"></span><br />密码：
+            <input class="inputStyle pwd" type="password" name="pwd" /><br />
+            <input class="loginStyle" type="submit" value="登录" onclick="checkUser()" />
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function checkUserName() {
+        let userName = document.querySelector(".username").value;
+        ajax({
+            url: "/checkUserName",
+            method: "post",
+            data: {
+                userName
+            },
+            success(res) {
+                console.log(res);
+                if (res.status == 0) {
+                    document.querySelector(".exchange").style.color = 'green';
+                } else {
+                    document.querySelector(".exchange").style.color = 'red';
+                }
+                document.querySelector(".exchange").innerHTML = res.info;
+            }
+        });
+    }
+
+    function checkUser() {
+        let userName = document.querySelector(".username").value;
+        let pwd = document.querySelector(".pwd").value;
+        ajax({
+            url: "/checkUser",
+            method: "post",
+            data: {
+                userName,
+                pwd
+            },
+            success(res) {
+                console.log(res);
+                if (res.status == 0) {
+                    window.location.href = "/photo";
+                } else {
+                    alert(res.info);
+                    window.location.href = "/login";
+                }
+            }
+        });
+    }
+</script>
